@@ -21,11 +21,7 @@ class BallComponent(
 	}
 
 	fun collision(paddle: Entity) {
-		if (getEntity().x < paddle.x || getEntity().x > paddle.x + paddle.width) {
-			direction = Point2D(direction.x * -1, direction.y)
-		}
-		if (getEntity().y < paddle.y || getEntity().y > paddle.y + paddle.height) {
-			direction = Point2D(direction.x, direction.y * -1)
-		}
+		direction = Point2D(direction.x * -1, direction.y)
+		direction = Point2D(direction.x, direction.y * -1)
 	}
 }
