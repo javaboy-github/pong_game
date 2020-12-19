@@ -1,0 +1,42 @@
+// このpong_gameでは、LAN内通信で対戦できる様にしたい
+
+plugins {
+    id "application"
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id "org.openjfx.javafxplugin" version "0.0.8"
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+mainClassName = "MainKt"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    compile 'com.github.almasb:fxgl:11.11'
+}
+
+javafx {
+    version = "13"
+    modules = ["javafx.controls", "javafx.media", "javafx.fxml"]
+}
+
+run {
+    doFirst {
+        jvmArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.media,javafx.controls'
+        ]
+    }
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "MainKt"
+    }
+}
