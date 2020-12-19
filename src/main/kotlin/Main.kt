@@ -2,7 +2,6 @@ import com.almasb.fxgl.app.GameApplication
 import com.almasb.fxgl.app.GameSettings
 import com.almasb.fxgl.dsl.*
 import com.almasb.fxgl.entity.Entity
-import com.almasb.fxgl.entity.getComponent
 import javafx.scene.input.KeyCode
 import javafx.scene.paint.Color
 import javafx.scene.shape.Circle
@@ -14,7 +13,6 @@ class Main : GameApplication(){
 	private val paddleWidth = 30.0
 	private val paddleHeight = 100.0
 	private val ballSize = 20.0
-	private val ballSpeed = 5.0
 
 	private lateinit var paddle1: Entity
 	private lateinit var paddle2: Entity
